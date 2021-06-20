@@ -1,0 +1,24 @@
+<form [formGroup]="taskForm">
+<div>
+  <label for="task" class="block text-sm font-medium text-gray-700">Add Task</label>
+  <div class="mt-1 relative rounded-md shadow-sm">
+    <input  (keyup.enter)="onKeyPress($event)"
+    formControlName="taskTitle"
+    matInput
+    type="text"
+    value=""
+    placeholder="Enter Title and Press Enter"
+    class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" >
+    <div class="absolute inset-y-0 right-0 flex items-center">
+      <label for="category" class="sr-only">Categories</label>
+      <select 
+      formControlName="category_id"
+      id="category" name="category" 
+      class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+        
+        <option [value]="category.id"  *ngFor="let category of categories">{{category.name}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+</form>
